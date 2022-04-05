@@ -98,6 +98,23 @@ public class AddressBookMain {
         System.out.println(Book);
     }
 
+    /*
+     * Purpose : Used deleteDetails method to delete the details of the person
+     */
+    public void deleteDetails() {
+        // TODO Auto-generated method stub
+        System.out.println("Confirm your first name to edit details: ");
+        String name = scanner.next();
+
+        for (int i = 0; i < Book.size(); i++) {
+            if (Book.get(i).getFirstName().equals(name)) {
+                System.out.println("Select form below to change: ");
+                Book.remove(i);
+            }
+        }
+        System.out.println(Book);
+    }
+
     public static void main(String[] args) {
         int i = 0;
 
@@ -107,7 +124,7 @@ public class AddressBookMain {
 
         while (i == 0) {
             System.out.println("What you want to do: ");
-            System.out.println("1.Add details.\n2.Edit details.");
+            System.out.println("1.Add details.\n2.Edit details.\n3.Delete the details");
             int choose = scanner.nextInt();
             switch (choose) {
                 case 1:
@@ -115,6 +132,9 @@ public class AddressBookMain {
                     break;
                 case 2:
                     details.editDetails();
+                    break;
+                case 3:
+                    details.deleteDetails();
                     break;
                 default:
                     i = 1;
@@ -125,4 +145,5 @@ public class AddressBookMain {
         }
 
     }
+
 }
